@@ -54,7 +54,7 @@ function format_xml( $order ) {
   $order_header_xml = $xml->createElement( 'Order-Header' );
     
   if ( isset( $order ) ) {
-	// custom order numbers plugin https://wordpress.org/plugins/custom-order-numbers-for-woocommerce/
+    // custom order numbers plugin https://wordpress.org/plugins/custom-order-numbers-for-woocommerce/
     $nodes[0] = $xml->createElement( 'OrderNumber', $order->get_order_number() );
     $nodes[1] = $xml->createElement( 'OrderDate', date_format(date_create($order->order_date),"Y-m-d") );
     $nodes[2] = $xml->createElement( 'DocumentFunctionCode', 'O' );
@@ -156,7 +156,7 @@ $parties_xml = $xml->createElement( 'Order-Parties' );
     //Build an array of the required information for each product.
     $item_nodes[0] = $xml->createElement( 'LineNumber', htmlspecialchars( $total_lines_num, ENT_XML1, 'UTF-8' ) );
     $item_nodes[1] = $xml->createElement( 'EAN', htmlspecialchars( $sku, ENT_XML1, 'UTF-8' ) );
-	$item_nodes[2] = $xml->createElement( 'ItemDescription', htmlspecialchars( html_entity_decode( $product ? $product->get_title() : $item['name'], ENT_NOQUOTES, 'UTF-8' ), ENT_XML1, 'UTF-8' ) );
+    $item_nodes[2] = $xml->createElement( 'ItemDescription', htmlspecialchars( html_entity_decode( $product ? $product->get_title() : $item['name'], ENT_NOQUOTES, 'UTF-8' ), ENT_XML1, 'UTF-8' ) );
     $item_nodes[3] = $xml->createElement( 'OrderedQuantity', htmlspecialchars( $item['qty'], ENT_XML1, 'UTF-8' ) );
     $item_nodes[4] = $xml->createElement( 'OrderedUnitNetPrice', htmlspecialchars( wc_format_decimal( $price, 2 ), ENT_XML1, 'UTF-8' ) );
     
@@ -237,9 +237,9 @@ function update_order( $filename ,$order, $regenerated ) {
     
     //This will almost always be false unless this has been hit after the Regenerate XML action.
     if ( $regenerated ) {
-      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.'. '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
+      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.'. '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
     } else {
-      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.' . '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
+      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.' . '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
     }
     
     //Finally, add the correct note to the order.
