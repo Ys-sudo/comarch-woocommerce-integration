@@ -237,9 +237,9 @@ function update_order( $filename ,$order, $regenerated ) {
     
     //This will almost always be false unless this has been hit after the Regenerate XML action.
     if ( $regenerated ) {
-      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.'. '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
+      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.'. '<br><a target="_blank" rel="noopener noreferrer" href="/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
     } else {
-      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.' . '<br><a target="_blank" rel="noopener noreferrer" href="https://imperioline.com.pl/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
+      $note = 'Plik XML został pomyślnie utworzony. <br>'. '<a download href="/zamowienia-xml/'.$filename.'">Pobierz plik XML</a>.' . '<br><a target="_blank" rel="noopener noreferrer" href="/zamowienia-xml/'.$filename.'">Zobacz plik XML</a>.';
     }
     
     //Finally, add the correct note to the order.
